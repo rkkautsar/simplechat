@@ -26,6 +26,7 @@ app.controller('chatController', function($scope, $firebaseArray, $firebaseObjec
 			300,
 			function() {
 				this.remove();
+				$('#chatInput').focus();
 			});
 	}
 
@@ -52,4 +53,6 @@ $(function() {
 	layout();
 
 	$(window).resize(layout);
+
+	$('#newName').focus();
 });
