@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My Divshot Application</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-controller="chatController">
+  <section id="overlayName">
+    <h3>Hi there! Pick a username</h3>
+    <form ng-submit="setName()">
+      <input type="text" ng-model="newAuthor" placeholder="Pick a username">
+      <input type="submit" value="Continue" class="btn">
+    </form>
+  </section>
+  
+  <section id ="outerContainer">
+    <div id="container">
+      <div id="chatContainer">
+        <ul id="chatBody">
+          <li id="loading-past-data">
+            Loading last 10 message...
+          </li>
+          <li ng-repeat="message in pastMessages">
+            <p><strong>{{message.author}}:</strong> {{message.text}} <time title="{{ message.date | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}">
+              {{ message.date | amCalendar }}
+            </time></p>
+          </li>
+          <li ng-repeat="message in messages">
+            <p><strong>{{message.author}}:</strong> {{message.text}} <time title="{{ message.date | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}">
+              {{ message.date | amCalendar }}
+            </time></p>
+          </li>
+        </ul>
+        <span id="bottom" style="display:hidden"></span>
+      </div>
+    </div>
+    <form ng-submit="addMessage()" id="newMessage" style="display:flex">
+      <input type="text" placeholder="Type a message..." ng-model="newText" style="flex:1">
+      <input type="submit" value="Chat" class="btn">
+    </form>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="//cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+  <script src="//cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.10.1/angular-moment.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

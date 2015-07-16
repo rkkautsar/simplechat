@@ -1,0 +1,83 @@
+* *:before *:after {
+    box-sizing : border-box;
+}
+
+html, body {
+    height : 100%;
+}
+
+body {
+    font-family : 'Helvetica Neue', sans-serif;
+    font-size : 16px;
+
+    margin : 0;
+
+    color : #333;
+}
+
+#overlayName {
+    position : fixed;
+    z-index : 9;
+    top : 0;
+
+    min-width : 100%;
+    min-height : 100%;
+
+    color : #fff;
+    background : #333;
+    
+    padding-top:20%;
+    text-align:center;
+}
+
+#outerContainer {
+    width : 100%;
+    max-width : 768px;
+    margin : 0 auto;
+}
+
+#container {
+    overflow : auto;
+}
+
+#chatBody {
+    margin : 0;
+    padding : 0;
+
+    list-style : none;
+}
+
+#chatBody li {
+    margin : 1em .5em;
+}
+
+#chatBody time {
+    font-size : .8em;
+
+    margin-left : 1em;
+
+    color : #999;
+}
+
+#newMessage {
+    position : absolute;
+    bottom : 0;
+
+    width : 90%;
+    margin : 0 auto;
+    padding : 1em .5em;
+
+    background : #fff;
+}
+
+input {
+    padding : 1em;
+
+    border : none;
+}
+
+.btn {
+    color : white;
+    border : none;
+    background : #67a3ff;
+}
